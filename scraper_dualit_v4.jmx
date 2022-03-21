@@ -388,20 +388,13 @@ var link =&quot;&quot;+id+&quot;&quot;;
 log.info(link);
 var remote = vars.get(&quot;remote&quot;);
 var city = vars.get(&quot;cities_&quot;+k);
-var cityy = city;
 if(city.contains(&apos;Remote&apos;)== true){
 	city = city.replaceAll(&apos;Remote&apos;,&apos;&apos;);
-	log.info(city);
-	}
+	}else{
+		remote = &apos;&apos;;}
 log.info(city);
 var company = vars.get(&quot;company&quot;);
-String job;
-if(cityy.contains(&apos;Remote&apos;)== true){
-	job=&apos;{&quot;id&quot;: &quot;&apos;+guid+&apos;&quot;, &quot;remote&quot;: &quot;&apos;+remote+&apos;&quot;, &quot;job_title&quot;: &quot;&apos;+title+&apos;&quot;, &quot;job_link&quot;: &quot;&apos;+link+&apos;&quot;, &quot;company&quot;: &quot;&apos;+company+&apos;&quot;, &quot;country&quot;: &quot;România&quot;, &quot;city&quot;: &quot;&apos;+city+&apos;&quot; }&apos;;
-	}else{
-		job=&apos;{&quot;id&quot;: &quot;&apos;+guid+&apos;&quot;, &quot;job_title&quot;: &quot;&apos;+title+&apos;&quot;, &quot;job_link&quot;: &quot;&apos;+link+&apos;&quot;, &quot;company&quot;: &quot;&apos;+company+&apos;&quot;, &quot;country&quot;: &quot;România&quot;, &quot;city&quot;: &quot;&apos;+city+&apos;&quot; }&apos;;
-		}
-
+String job=&apos;{&quot;id&quot;: &quot;&apos;+guid+&apos;&quot;, &quot;remote&quot;: &quot;&apos;+remote+&apos;&quot;, &quot;job_title&quot;: &quot;&apos;+title+&apos;&quot;, &quot;job_link&quot;: &quot;&apos;+link+&apos;&quot;, &quot;company&quot;: &quot;&apos;+company+&apos;&quot;, &quot;country&quot;: &quot;România&quot;, &quot;city&quot;: &quot;&apos;+city+&apos;&quot; }&apos;;
 var joblist = vars.getObject(&quot;joblist&quot;);
 joblist = joblist + job;
 vars.putObject(&quot;joblist&quot;, joblist);
