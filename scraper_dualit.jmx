@@ -13,6 +13,11 @@
             <stringProp name="Argument.value">dualit</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
+          <elementProp name="remote" elementType="Argument">
+            <stringProp name="Argument.name">remote</stringProp>
+            <stringProp name="Argument.value">remote</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
         </collectionProp>
       </elementProp>
       <stringProp name="TestPlan.user_define_classpath"></stringProp>
@@ -374,14 +379,18 @@ var k = vars.get(&quot;k&quot;);
 log.info(k.toString());
 var title = vars.get(&quot;titles_&quot; + k);
 log.info(title);
-//var title = title.replaceAll(&apos;&amp;#8211;&apos;,&apos; &apos;); 
 var id = vars.get(&quot;ids_&quot; + k);
 var link =&quot;&quot;+id+&quot;&quot;;
 log.info(link);
+var remote = vars.get(&quot;remote&quot;);
 var city = vars.get(&quot;cities_&quot;+k);
+if(city.contains(&apos;Remote&apos;)== true){
+	city = city.replaceAll(&apos;Remote&apos;,&apos;&apos;);
+	}else{
+		remote = &apos;&apos;;}
 log.info(city);
 var company = vars.get(&quot;company&quot;);
-String job=&apos;{&quot;id&quot;: &quot;&apos;+guid+&apos;&quot;,&quot;job_title&quot;: &quot;&apos;+title+&apos;&quot;,&quot;job_link&quot;: &quot;&apos;+link+&apos;&quot;, &quot;company&quot;: &quot;&apos;+company+&apos;&quot;,    &quot;country&quot;: &quot;România&quot;,&quot;city&quot;: &quot;&apos;+city+&apos;&quot; }&apos;;
+String job=&apos;{&quot;id&quot;: &quot;&apos;+guid+&apos;&quot;, &quot;remote&quot;: &quot;&apos;+remote+&apos;&quot;, &quot;job_title&quot;: &quot;&apos;+title+&apos;&quot;, &quot;job_link&quot;: &quot;&apos;+link+&apos;&quot;, &quot;company&quot;: &quot;&apos;+company+&apos;&quot;, &quot;country&quot;: &quot;România&quot;, &quot;city&quot;: &quot;&apos;+city+&apos;&quot; }&apos;;
 var joblist = vars.getObject(&quot;joblist&quot;);
 joblist = joblist + job;
 vars.putObject(&quot;joblist&quot;, joblist);
